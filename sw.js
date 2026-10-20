@@ -15,8 +15,6 @@ self.addEventListener("activate", e => {
   self.clients.claim();
 });
 
-// Network first (always fresh when online), cache as offline fallback.
-// Only same-origin GET requests are handled, so Firebase login calls are untouched.
 self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
