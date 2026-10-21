@@ -3,179 +3,189 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
 <title>Nishant Classes • Student Portal</title>
-<meta name="description" content="Nishant Classes Student Portal - Learn Today, Lead Tomorrow">
+
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#174b98">
-<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#f5f6fa">
 <link rel="icon" href="icon-192.png">
+
 <style>
-:root{--blue:#174b98;--blue2:#1857ad;--sky:#eaf2ff;--bg:#f2f6fc;--ink:#17243a;--mute:#667085;--line:#d5e0ef;--ok:#067647;--err:#b42318;--gold:#f5b301}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:system-ui,-apple-system,'Segoe UI','Noto Sans Devanagari',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding-bottom:env(safe-area-inset-bottom)}
-header{background:linear-gradient(135deg,#123c7c 0%,#1d5fc2 100%);color:#fff;padding:calc(28px + env(safe-area-inset-top)) 20px 64px;text-align:center}
-.logo{width:64px;height:64px;border-radius:16px;background:#fff;color:var(--blue);display:grid;place-items:center;font-weight:800;font-size:26px;margin:0 auto 12px;box-shadow:0 6px 18px #0003}
-h1{margin:0;font-size:26px;letter-spacing:1.5px}
-header p{margin:6px 0 0;opacity:.9;font-size:15px}
-.tag{display:inline-block;margin-top:12px;background:#ffffff22;border:1px solid #ffffff44;padding:4px 12px;border-radius:999px;font-size:13px}
-main{max-width:680px;margin:-40px auto 24px;padding:0 16px}
-.card{background:#fff;padding:22px;border-radius:18px;box-shadow:0 6px 24px #142a4b14;margin-bottom:16px}
-h2{margin:0 0 12px;font-size:21px}
-h3{margin:22px 0 10px;font-size:17px}
-label{display:block;font-size:14px;font-weight:600;margin-top:10px}
-input,button{width:100%;padding:13px 14px;margin:6px 0;border:1px solid var(--line);border-radius:11px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
-input:focus{outline:3px solid #1857ad33;border-color:var(--blue2)}
-button{background:var(--blue2);color:#fff;border:0;cursor:pointer;font-weight:650;transition:transform .05s,background .15s}
-button:active{transform:scale(.98)}
-button:hover{background:#134a99}
-button:disabled{opacity:.6;cursor:not-allowed}
-button.secondary{background:var(--sky);color:var(--blue)}
-button.secondary:hover{background:#dbe9ff}
+
+body{
+margin:0;
+background:#f5f6fa;
+color:#334451;
+font-family:system-ui,'Noto Sans Devanagari',sans-serif;
+padding-bottom:78px;
+}
+
+header{
+height:74px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 19px;
+box-shadow:0 1px 8px #0000000c;
+position:sticky;
+top:0;
+z-index:5;
+}
+
+header strong{
+font-size:23px;
+font-weight:650;
+}
+
+header button{
+width:auto;
+background:none;
+color:#34434d;
+font-size:27px;
+padding:5px;
+border:0;
+}
+
+.wrap{
+max-width:950px;
+margin:auto;
+padding:22px 15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:14px;
+}
+
+.tile{
+border:1px solid #edf0f3;
+min-height:155px;
+background:white;
+border-radius:13px;
+box-shadow:0 2px 9px #0000000b;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:10px;
+text-align:center;
+padding:14px 7px;
+color:#526674;
+font-weight:650;
+font-size:16px;
+cursor:pointer;
+}
+
+.tile .icon{
+font-size:49px;
+line-height:1.2;
+}
+
+.tile:active{transform:scale(.98)}
+
+.title{
+font-size:21px;
+margin:28px 0 14px;
+}
+
+.panel{
+background:#fff;
+border-radius:14px;
+padding:19px;
+margin:15px 0;
+box-shadow:0 3px 12px #0001;
+}
+
 .hidden{display:none!important}
-.error{color:var(--err)}.success{color:var(--ok)}
-#msg{min-height:22px;margin:8px 0 0;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.classes{grid-template-columns:repeat(3,1fr)}
-.classes button{margin:0;padding:14px 6px;background:var(--sky);color:var(--blue);border:2px solid transparent}
-.classes button.active{background:var(--blue2);color:#fff}
-.tile{background:var(--sky);padding:16px 10px;border-radius:12px;text-align:center;font-weight:600}
-.tile small{display:block;margin-top:4px;font-weight:400}
-small{color:var(--mute)}
-.note{display:block;margin-top:14px;font-size:13px}
-.badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700;background:var(--sky);color:var(--blue)}
-.badge.premium{background:#fff3cd;color:#7a5b00}
-.userbox{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.userbox p{margin:2px 0}
-#installBtn{background:var(--gold);color:#3a2a00;margin-top:0}
-#installBtn:hover{background:#e6a800}
-#selected{min-height:22px;color:var(--blue);font-weight:600}
-footer{text-align:center;color:var(--mute);font-size:13px;padding:8px 16px 28px}
-@media(max-width:380px){.classes{grid-template-columns:repeat(2,1fr)}}
-</style>
-</head>
-<body>
-<header>
-  <div class="logo" aria-hidden="true">NC</div>
-  <h1>NISHANT CLASSES</h1>
-  <p>Student Portal • Learn Today, Lead Tomorrow</p>
-  <span class="tag">Class 6 से 12 तक</span>
-</header>
 
-<main>
-  <button id="installBtn" class="hidden" type="button">📲 App Install करें</button>
-
-  <section id="auth" class="card">
-    <h2 id="heading">Student Login</h2>
-    <form id="form">
-      <div id="nameRow" class="hidden">
-        <label for="name">पूरा नाम</label>
-        <input id="name" autocomplete="name" maxlength="80" placeholder="अपना नाम लिखें">
-      </div>
-      <label for="email">Email</label>
-      <input id="email" type="email" autocomplete="email" required placeholder="example@gmail.com">
-      <label for="password">Password</label>
-      <input id="password" type="password" minlength="6" autocomplete="current-password" required placeholder="कम से कम 6 अक्षर">
-      <button id="submit" type="submit">Login</button>
-    </form>
-    <button id="toggle" class="secondary" type="button">नया Account बनाएँ</button>
-    <button id="reset" class="secondary" type="button">Password भूल गए?</button>
-    <p id="msg" role="status" aria-live="polite"></p>
-    <small class="note">🔒 अपना Password किसी को न दें। Student और Admin permissions केवल सुरक्षित server rules से तय होंगी।</small>
-  </section>
-
-  <section id="dashboard" class="card hidden">
-    <div class="userbox">
-      <div>
-        <h2 style="margin:0">Welcome, <span id="welcome"></span> 👋</h2>
-        <p id="userEmail"><small></small></p>
-        <span id="profileStatus" class="badge" role="status"></span>
-      </div>
-    </div>
-    <button id="logout" class="secondary" type="button" style="margin-top:14px">Logout</button>
-
-    <h3>अपनी Class चुनें</h3>
-    <div class="grid classes" id="classes"></div>
-    <p id="selected" role="status"></p>
-
-    <h3>Study Sections</h3>
-    <div class="grid">
-      <div class="tile">📖 PDF Notes<small>Coming soon</small></div>
-      <div class="tile">🎥 Video Lectures<small>Coming soon</small></div>
-      <div class="tile">📝 Online Test<small>Coming soon</small></div>
-      <div class="tile">📢 Homework &amp; Notices<small>Coming soon</small></div>
-    </div>
-  </section>
-</main>
-
-<footer>© Nishant Classes</footer>
-
-<script type="module">
-import {initializeApp} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
-import {initializeAppCheck,ReCaptchaEnterpriseProvider} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app-check.js';
-import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut,updateProfile,sendPasswordResetEmail} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
-import {getFirestore,doc,setDoc,getDoc,serverTimestamp} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
-const firebaseConfig={apiKey:'AIzaSyDwKd0V_oQ76VdfsKaSLVz2gHrIH6JiFVs',authDomain:'spl-nishant.firebaseapp.com',projectId:'spl-nishant',storageBucket:'spl-nishant.firebasestorage.app',messagingSenderId:'830151089403',appId:'1:830151089403:web:a03daad843f0e6bc3ce45e',measurementId:'G-M6S0XCX0JK'};
-const RECAPTCHA_SITE_KEY='6Lf9S_ctAAAAAGaNdWWdv6g_0lKstoqcrPJs2SeQ';
-const app=initializeApp(firebaseConfig);
-if(location.hostname==='localhost'||location.hostname==='127.0.0.1'){self.FIREBASE_APPCHECK_DEBUG_TOKEN=true}
-initializeAppCheck(app,{provider:new ReCaptchaEnterpriseProvider(RECAPTCHA_SITE_KEY),isTokenAutoRefreshEnabled:true});
-const auth=getAuth(app),db=getFirestore(app),$=id=>document.getElementById(id);
-let registering=false;
-const messages={'auth/email-already-in-use':'इस Email से Account पहले से मौजूद है।','auth/invalid-email':'सही Email डालें।','auth/weak-password':'मजबूत Password डालें (कम से कम 6 अक्षर)।','auth/invalid-credential':'Email या Password गलत है।','auth/too-many-requests':'बहुत कोशिशें हुई हैं। थोड़ी देर बाद प्रयास करें।','auth/network-request-failed':'Internet connection जाँचें।','auth/operation-not-allowed':'Firebase Console में Email/Password Sign-in Enable करें।','permission-denied':'Firestore Rules या App Check सेटिंग जाँचें।'};
-function message(s,ok=false){$('msg').textContent=s;$('msg').className=ok?'success':'error'}
-function setMode(v){registering=v;$('nameRow').classList.toggle('hidden',!v);$('name').required=v;$('heading').textContent=v?'Student Registration':'Student Login';$('submit').textContent=v?'Create Account':'Login';$('toggle').textContent=v?'पहले से Account है? Login करें':'नया Account बनाएँ';$('password').autocomplete=v?'new-password':'current-password';message('')}
-$('toggle').onclick=()=>setMode(!registering);
-$('form').onsubmit=async e=>{
- e.preventDefault();$('submit').disabled=true;message('');
- try{
-  const email=$('email').value.trim(),password=$('password').value;
-  if(registering){
-   const name=$('name').value.trim();if(!name){message('अपना पूरा नाम भरें।');return}
-   const result=await createUserWithEmailAndPassword(auth,email,password);
-   try{
-    await setDoc(doc(db,'students',result.user.uid),{name,email:result.user.email,plan:'free',createdAt:serverTimestamp()});
-   }catch(err){message('Account बना है, लेकिन Student Profile save नहीं हुई। Firestore Rules/App Check जाँचें। '+(err.code||''));return}
-   await updateProfile(result.user,{displayName:name});
-   await showUser(result.user);
-  }else{await signInWithEmailAndPassword(auth,email,password)}
- }catch(err){message(messages[err.code]||'Error: '+(err.code||'unknown'))}
- finally{$('submit').disabled=false}
-};
-$('reset').onclick=async()=>{const email=$('email').value.trim();if(!email){message('पहले अपना Email लिखें।');return}try{await sendPasswordResetEmail(auth,email);message('यदि यह Email पंजीकृत है, तो Reset Email भेजा गया है। Inbox/Spam जाँचें।',true)}catch(err){message(messages[err.code]||'Password reset नहीं हो सका।')}};
-function setPlan(plan){const el=$('profileStatus');const p=plan==='premium';el.textContent=p?'⭐ Premium Member':'Free Member';el.classList.toggle('premium',p)}
-async function showUser(user){
- $('auth').classList.add('hidden');$('dashboard').classList.remove('hidden');
- $('welcome').textContent=user.displayName||'Student';$('userEmail').textContent=user.email||'';
- $('profileStatus').textContent='Profile loading...';
- try{
-  const snapshot=await getDoc(doc(db,'students',user.uid));
-  if(auth.currentUser?.uid!==user.uid)return;
-  if(snapshot.exists()){
-   const student=snapshot.data();$('welcome').textContent=student.name||user.displayName||'Student';
-   setPlan(student.plan);
-  }else{$('profileStatus').textContent='Student profile अभी नहीं मिली। नए Registration पर यह अपने आप बनती है।'}
- }catch(err){$('profileStatus').textContent='Profile नहीं खुली। Firestore Rules/App Check जाँचें।';console.error('Profile loading failed:',err)}
-}
-onAuthStateChanged(auth,user=>{if(user){showUser(user)}else{$('auth').classList.remove('hidden');$('dashboard').classList.add('hidden');$('profileStatus').textContent='';$('profileStatus').classList.remove('premium')}});
-$('logout').onclick=()=>signOut(auth);
-for(let i=6;i<=12;i++){
- const b=document.createElement('button');b.type='button';b.textContent='Class '+i;
- b.onclick=()=>{document.querySelectorAll('#classes button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('selected').textContent='Class '+i+' selected. Study content जल्द जोड़ा जाएगा।'};
- $('classes').append(b);
+input,select,.action{
+width:100%;
+font:inherit;
+border-radius:9px;
+padding:12px;
+margin:6px 0 12px;
+border:1px solid #d7e0e8;
 }
 
-// "Install App" button (Chrome / Android)
-let deferredPrompt=null;
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;$('installBtn').classList.remove('hidden')});
-$('installBtn').onclick=async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;$('installBtn').classList.add('hidden')};
-window.addEventListener('appinstalled',()=>$('installBtn').classList.add('hidden'));
-</script>
-
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+.action{
+background:#245ba4;
+color:white;
+border:0;
+font-weight:650;
+cursor:pointer;
 }
-</script>
-</body>
-</html>
+
+.sub{
+background:#edf3ff;
+color:#245ba4;
+}
+
+.error{color:#b42318}
+.success{color:#067647}
+
+.badge{
+background:#eaf2ff;
+color:#174b98;
+border-radius:25px;
+padding:5px 11px;
+font-size:13px;
+}
+
+.premium{
+background:#fff1c8;
+color:#765500;
+}
+
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:white;
+display:flex;
+justify-content:space-around;
+box-shadow:0 -2px 12px #0001;
+z-index:6;
+padding-bottom:env(safe-area-inset-bottom);
+}
+
+.bottom button{
+border:0;
+background:none;
+color:#6b7680;
+padding:9px 2px;
+font-size:11px;
+min-width:60px;
+}
+
+.bottom span{
+display:block;
+font-size:23px;
+}
+
+.bottom .active{color:#245ba4}
+
+#classes{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+}
+
+#classes button{
+padding:10px 2px;
+border:0;
+border-radius:8px;
+background:#eaf2ff;
+color:#174b98;
+}
+
+#classes button.active{
+background:#174b98;
+color:white;
+}
+
+@media(max-width:390px){
+.tile
